@@ -36,6 +36,16 @@ class AlunoController extends Controller
     public function store(Request $request)
     {
         //
+        $aluno = new Aluno();
+
+        $aluno->nome = $request->input('nome');
+        $aluno->apelido = $request->input('apelido');
+        $aluno->genero = $request->input('genero');
+        $aluno->user = $request->input('user');
+        $aluno->idade = $request->input('idade');
+        $aluno->save();
+
+        return response($request->all())->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
